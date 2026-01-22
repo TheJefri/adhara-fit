@@ -2,60 +2,121 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Reclamo enviado | DHARA FIT</title>
+  <title>Gracias | ADHARA FIT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
     body {
-      background: #0b0b0b;
-      color: #fff;
-      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.75)
+      ),
+      url("https://images.unsplash.com/photo-1558611848-73f7eb4001a1") center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      color: #fff;
       text-align: center;
+      padding: 20px;
     }
 
     .box {
-      background: #111;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
-      max-width: 420px;
+      background: rgba(17,17,17,0.95);
+      border: 2px solid #facc15;
+      border-radius: 20px;
+      padding: 50px 35px;
+      max-width: 500px;
+      width: 100%;
+      animation: fadeUp 1s ease;
+    }
+
+    .box i {
+      font-size: 70px;
+      color: #facc15;
+      margin-bottom: 20px;
+      animation: pop 0.6s ease;
     }
 
     h1 {
-      color: #ffd700;
-      margin-bottom: 10px;
+      font-size: 2.2rem;
+      margin-bottom: 15px;
     }
 
     p {
-      opacity: 0.9;
-      margin-bottom: 25px;
+      font-size: 1.05rem;
+      color: #d1d5db;
+      margin-bottom: 30px;
+      line-height: 1.6;
     }
 
     a {
-      color: #ffd700;
+      display: inline-block;
+      padding: 14px 35px;
+      background: #facc15;
+      color: #000;
       text-decoration: none;
       font-weight: bold;
-      border-bottom: 1px solid transparent;
+      border-radius: 8px;
+      transition: all 0.3s ease;
     }
 
     a:hover {
-      border-bottom: 1px solid #ffd700;
+      background: #fff;
+      transform: translateY(-3px);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pop {
+      0% {
+        transform: scale(0);
+      }
+      80% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
     }
   </style>
 </head>
+
 <body>
 
   <div class="box">
-    <h1>Reclamo enviado</h1>
+    <i class="fa-solid fa-circle-check"></i>
+    <h1>¡Gracias por tu reclamo!</h1>
     <p>
-      Hemos recibido correctamente su reclamo.  
-      Nos comunicaremos con usted a la brevedad.
+      Hemos recibido correctamente tu información.<br>
+      Nuestro equipo de <strong>ADHARA FIT</strong> la revisará y
+      se comunicará contigo dentro del plazo establecido.
     </p>
-    <a href="index.html">Volver al inicio</a>
+
+    <a href="index.html">
+      Volver al inicio
+    </a>
   </div>
 
 </body>
 </html>
+
