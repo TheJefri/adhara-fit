@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="logo.png">
+  <title>ADHARA FIT</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      background-color: #0b0b0b;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #0b0b0b;
+      border-bottom: 3px solid #facc15;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h1 {
+      color: #facc15;
+      font-size: 2rem;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: linear-gradient(
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.7)
+      ),
+      url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48") center/cover no-repeat;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      color: #facc15;
+      margin-bottom: 10px;
+    }
+
+    .typing {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #facc15;
+      height: 35px;
+    }
+
+    .cursor {
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 20px auto 0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      background: #facc15;
+      color: #0b0b0b;
+      padding: 12px 30px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 70px 20px;
+    }
+
+    section h2 {
+      text-align: center;
+      color: #facc15;
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #1f1f1f;
+      padding: 30px;
+      border-left: 5px solid #facc15;
+      border-radius: 8px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #facc15;
+    }
+
+    .price {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .contacto {
+      text-align: center;
+      background: #111;
+      border-top: 3px solid #facc15;
+    }
+
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      width: 45px;
+      height: 45px;
+    }
+    .logo span {
+  color: #ffffff;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+        /* HORARIO MEJORADO */
+    .horario .card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .horario .card i {
+      color: #facc15;
+      font-size: 1.2rem;
+    }
+    
+    .hora {
+      font-size: 1.3rem;
+      margin: 10px 0;
+    }
+    
+    /* DOMINGO CERRADO */
+    .domingo {
+      text-align: center;
+      margin-top: 30px;
+      color: #ff4d4d;
+      font-weight: bold;  
+      font-size: 1.1rem;
+    }
+    
+    /* ANIMACIÓN SUAVE */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* NAVBAR STICKY */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px; /* 👈 FIJA */
+      z-index: 999;
+      background: rgba(11, 11, 11, 0.75);
+      backdrop-filter: blur(10px);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    
+    /* EFECTO AL HACER SCROLL */
+    header.scrolled {
+      background-color: rgba(11, 11, 11, 0.95);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    }
+    /* COACHES */
+    #coaches {
+      background: #0b0b0b;
+    }
+    
+    .coach-card {
+      background: #141414;
+      padding: 35px 25px;
+      border-radius: 18px;
+      text-align: center;
+      border: 2px solid #2a2a2a;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .coach-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px rgba(250, 204, 21, 0.25);
+    }
+    
+    .coach-card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #facc15;
+      margin-bottom: 15px;
+    }
+    
+    .coach-card h3 {
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+    
+    .stars {
+      color: #facc15;
+      margin-bottom: 15px;
+    }
+    
+    .coach-card p {
+      font-size: 0.95rem;
+      color: #d1d5db;
+      line-height: 1.5;
+    }
+/* PLANES PREMIUM */
+.plans-grid {
+  gap: 30px;
+}
+
+.plan-card {
+  background: #000;
+  border: 2px solid rgba(250, 204, 21, 0.3);
+  border-radius: 20px;
+  padding: 40px 30px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.plan-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(250, 204, 21, 0.25);
+}
+
+.plan-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.plan-price {
+  font-size: 2.2rem;
+  color: #facc15;
+  font-weight: bold;
+}
+
+.plan-time {
+  color: #9ca3af;
+  margin-bottom: 20px;
+}
+
+.plan-card ul {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.plan-card ul li {
+  margin-bottom: 10px;
+  color: #e5e7eb;
+}
+
+.plan-card ul li i {
+  color: #facc15;
+  margin-right: 8px;
+}
+
+.plan-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #facc15;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid #facc15;
+  padding-bottom: 5px;
+}
+
+.plan-btn:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+/* PLAN DESTACADO */
+.plan-card.featured {
+  border: 2px solid #facc15;
+  box-shadow: 0 0 35px rgba(250, 204, 21, 0.35);
+}
+
+/* MENU HAMBURGUESA */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: #facc15;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav ul {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #0b0b0b;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 0;
+    display: none;
+    border-top: 2px solid #facc15;
+  }
+
+  nav ul.active {
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* NAVBAR BASE */
+nav {
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+
+/* NAVBAR CUANDO SE HACE SCROLL */
+nav.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  padding: 10px 8%;
+  animation: slideDown 0.4s ease forwards;
+}
+
+/* ANIMACIÓN */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+nav a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+  color: #facc15;
+  transform: translateY(-2px);
+}
+
+nav {
+  background: transparent;
+  max-width: 1200px;
+  height: 100%;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO ANIMADO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.4s ease;
+}
+
+.logo img {
+  width: 45px;
+  height: 45px;
+  transition: all 0.4s ease;
+}
+
+.logo span {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  transition: all 0.4s ease;
+}
+
+/* ESTADO SCROLL */
+header.scrolled .logo img {
+  width: 36px;
+  height: 36px;
+}
+
+header.scrolled .logo span {
+  font-size: 1.5rem;
+  opacity: 0.9;
+}
+.reclamaciones {
+  background: url("https://images.unsplash.com/photo-1583454110551-21f2fa2afe61")
+              center/cover no-repeat;
+  position: relative;
+  margin-top: 80px;
+}
+
+.reclamaciones-overlay {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.reclamaciones h2 {
+  color: #facc15;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+}
+
+.reclamaciones p {
+  max-width: 700px;
+  margin: auto;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+  </style>
+</head>
+
+<body>
+
+<header>
+<nav>
+  <h1 class="logo">
+    <img src="logo.png" alt="ADHARA FIT">
+    <span>DHARA FIT</span>
+  </h1>
+
+  <ul id="nav-menu">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#planes">Planes</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+</nav>
+
+</header>
+
+<section class="hero" id="inicio">
+  <h2>ADHARA FIT</h2>
+
+  <div class="typing">
+    <span id="typing-text"></span><span class="cursor">|</span>
+  </div>
+
+  <p>
+    Vive una experiencia fitness semi personalizada,
+    diseñada para ayudarte a alcanzar tus objetivos reales.
+  </p>
+
+  <a href="#planes" class="btn">Inscríbete ahora</a>
+</section>
+
+<section id="servicios">
+  <h2>Nuestros Servicios</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Atención Semi Personalizada</h3>
+      <p>
+        Cada sesión se adapta a tus metas específicas,
+        con seguimiento y acompañamiento constante.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Entrenadores Certificados</h3>
+      <p>
+        Profesionales altamente capacitados que te guían
+        en cada paso de tu proceso fitness.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Ambiente Profesional</h3>
+      <p>
+        Equipos modernos y un entorno diseñado
+        para maximizar tu rendimiento.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="horario">
+  <h2>Horario de Atención</h2>
+
+  <div class="grid">
+
+    <div class="card fade-up">
+      <h3><i class="fa-solid fa-sun"></i> Turno Mañana</h3>
+      <p class="hora"><strong>6:00 AM – 12:00 PM</strong></p>
+      <p>Lunes a Viernes</p>
+    </div>
+
+    <div class="card fade-up">
+      <h3><i class="fa-solid fa-moon"></i> Turno Tarde</h3>
+      <p class="hora"><strong>4:00 PM – 11:00 PM</strong></p>
+      <p>Lunes a Viernes</p>
+    </div>
+
+    <div class="card fade-up">
+      <h3><i class="fa-solid fa-calendar-day"></i> Sábados</h3>
+      <p class="hora"><strong>6:30 AM – 12:00 PM</strong></p>
+      <p>Horario especial</p>
+    </div>
+
+  </div>
+
+  <p class="domingo">
+    <i class="fa-solid fa-ban"></i> Domingos: Cerrado
+  </p>
+</section>
+
+<section id="coaches">
+  <h2>Nuestros Coaches</h2>
+
+  <div class="grid">
+
+    <div class="coach-card fade-up">
+      <img src="coach.png" alt="Coach Juan">
+      <h3>Jesus Bonillo</h3>
+
+      <div class="stars">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+
+      <p>
+        Especialista en entrenamiento funcional y musculación.
+        Más de 5 años transformando vidas.
+      </p>
+    </div>
+
+    <div class="coach-card fade-up">
+      <img src="coach2.png" alt="Coach Carlos">
+      <h3>David Laid</h3>
+
+      <div class="stars">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+
+      <p>
+        Coach certificado en fuerza y acondicionamiento físico.
+      </p>
+    </div>
+
+    <div class="coach-card fade-up">
+      <img src="coach3.png" alt="Coach Luis">
+      <h3>Chico Lachowski</h3>
+
+      <div class="stars">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+
+      <p>
+        Entrenador personal enfocado en pérdida de grasa
+        y recomposición corporal.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="planes">
+  <h2>Nuestros Planes</h2>
+
+  <div class="grid plans-grid">
+
+    <div class="plan-card fade-up">
+      <h3>BÁSICO</h3>
+      <p class="plan-price">S/ 130</p>
+      <p class="plan-time">1 Mes</p>
+
+      <ul>
+        <li><i class="fa-solid fa-check"></i> Acceso completo al gimnasio</li>
+        <li><i class="fa-solid fa-check"></i> Rutina personalizada</li>
+        <li><i class="fa-solid fa-check"></i> Horarios flexibles</li>
+      </ul>
+
+     <a href="https://wa.me/51977258300?text=Hola%20que%20tal,%20estoy%20interesado%20en%20el%20plan%20BÁSICO%20de%201%20mes.%20¿Podrían%20indicarme%20los%20métodos%20de%20pago%20disponibles%20como%20Yape,%20Plin%20o%20tarjeta?"
+        target="_blank"
+        class="plan-btn">
+       Inscribirme <i class="fa-solid fa-arrow-right"></i>
+     </a>
+    </div>
+
+    <div class="plan-card featured fade-up">
+      <h3>PRO</h3>
+      <p class="plan-price">S/ 200</p>
+      <p class="plan-time">2 Meses</p>
+
+      <ul>
+        <li><i class="fa-solid fa-check"></i> Todo el plan Básico</li>
+        <li><i class="fa-solid fa-check"></i> Seguimiento constante</li>
+        <li><i class="fa-solid fa-check"></i> Clases grupales</li>
+      </ul>
+
+      <a href="https://wa.me/51977258300?text=Hola%20que%20tal,%20estoy%20interesado%20en%20el%20plan%20PRO%20de%202%20meses.%20Me%20gustaría%20saber%20los%20métodos%20de%20pago%20disponibles%20(Yape,%20Plin%20o%20tarjeta)."
+         target="_blank"
+         class="plan-btn">
+        Inscribirme <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="plan-card fade-up">
+      <h3>PREMIUM</h3>
+      <p class="plan-price">S/ 280</p>
+      <p class="plan-time">3 Meses</p>
+
+      <ul>
+        <li><i class="fa-solid fa-check"></i> Todo el plan PRO</li>
+        <li><i class="fa-solid fa-check"></i> Atención semi personalizada</li>
+        <li><i class="fa-solid fa-check"></i> Prioridad en horarios</li>
+      </ul>
+
+      <a href="https://wa.me/51977258300?text=Hola%20que%20tal,%20estoy%20interesado%20en%20el%20plan%20PREMIUM%20de%203%20meses.%20¿Podrían%20indicarme%20los%20métodos%20de%20pago%20disponibles%20como%20Yape,%20Plin%20o%20tarjeta?"
+         target="_blank"
+         class="plan-btn">
+        Inscribirme <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<div style="max-width:1200px;margin:40px auto 20px;">
+  <iframe
+    src="https://www.google.com/maps?q=XW5X%2BGJ9%20Av.%20Ram%C3%B3n%20C%C3%A1rcamo%20Lima%2015079&output=embed"
+    width="100%"
+    height="350"
+    style="border:0;border-radius:10px;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+<section id="reclamaciones" class="reclamaciones">
+  <div class="reclamaciones-overlay">
+    <h2>Libro de Reclamaciones</h2>
+    <p>
+      Conforme a lo establecido por INDECOPI, ponemos a tu disposición
+      nuestro Libro de Reclamaciones virtual.
+    </p>
+
+    <a href="libro-reclamaciones.html" class="btn">
+      Registrar Reclamo
+    </a>
+  </div>
+</section>
+
+
+<section id="contacto" class="contacto">
+  <h2>Contacto</h2>
+  <p>📍 Av. Ramón Cárcamo – Cercado de Lima</p>
+  <p>☎ 977 258 300 | 925 193 446</p>
+  <p>📸 Instagram: @jesusbonillo14</p>
+</section>
+
+<footer>
+  © 2026 ADHARA FIT – Todos los derechos reservados
+</footer>
+
+<a href="https://wa.me/51977258300"
+   class="whatsapp-float"
+   target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+  const texts = [
+    "Entrena con propósito",
+    "Creando un cuerpo perfecto",
+    "Supera tus límites",
+    "Disciplina, fuerza y constancia"
+  ];
+
+  let count = 0;
+  let index = 0;
+  let currentText = "";
+  let isDeleting = false;
+
+  function typeEffect() {
+    currentText = texts[count];
+
+    if (!isDeleting) {
+      index++;
+    } else {
+      index--;
+    }
+
+    document.getElementById("typing-text").textContent =
+      currentText.slice(0, index);
+
+    let speed = isDeleting ? 60 : 100;
+
+    if (!isDeleting && index === currentText.length) {
+      speed = 1500;
+      isDeleting = true;
+    } else if (isDeleting && index === 0) {
+      isDeleting = false;
+      count = (count + 1) % texts.length;
+      speed = 500;
+    }
+
+    setTimeout(typeEffect, speed);
+  }
+
+  typeEffect();
+</script>
+
+  <script>
+    const cards = document.querySelectorAll('.fade-up');
+  
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+  
+    cards.forEach(card => observer.observe(card));
+  </script>
+
+  <script>
+    const header = document.querySelector("header");
+  
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+  </script>
+  
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('nav-menu');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+</script>
+
+<script>
+  const nav = document.querySelector("nav");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      nav.classList.add("scrolled");
+    } else {
+      nav.classList.remove("scrolled");
+    }
+  });
+</script>
+
+<script>
+  const navLinks = document.querySelectorAll('#nav-menu a');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('active');
+    });
+  });
+</script>
+
+</body>
+</html>
