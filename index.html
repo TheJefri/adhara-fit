@@ -557,6 +557,52 @@ header.scrolled .logo span {
   box-shadow: 0 0 15px rgba(250, 204, 21, 0.6);
 }
 
+/* BOTÓN SUBIR */
+.scroll-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #facc15;
+  color: #000;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(30px) scale(0.8);
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  z-index: 1000;
+  transition: 
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    background 0.3s ease;
+}
+
+/* CUANDO APARECE */
+.scroll-top.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* CAMBIO DE COLOR AL BAJAR MÁS */
+.scroll-top.dark {
+  background: #ffffff;
+  color: #000;
+}
+
+/* HOVER */
+.scroll-top:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.6);
+}
+
   </style>
 </head>
 
@@ -930,26 +976,57 @@ header.scrolled .logo span {
 <button id="scrollTopBtn" class="scroll-top">
   <i class="fas fa-arrow-up"></i>
 </button>
+  
 <script>
   const scrollBtn = document.getElementById("scrollTopBtn");
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      scrollBtn.style.display = "flex";
+    const scrollY = window.scrollY;
+
+    // Mostrar / ocultar con animación
+    if (scrollY > 300) {
+      scrollBtn.classList.add("show");
     } else {
-      scrollBtn.style.display = "none";
+      scrollBtn.classList.remove("show");
+    }
+
+    // Cambiar color según scroll
+    if (scrollY > 800) {
+      scrollBtn.classList.add("dark");
+    } else {
+      scrollBtn.classList.remove("dark");
     }
   });
 
+  // Subida ultra suave y elegante
   scrollBtn.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    let start = window.scrollY;
+    let duration = 900;
+    let startTime = null;
+
+    function smoothScroll(currentTime) {
+      if (!startTime) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+
+      window.scrollTo(0, start * (1 - easeOutCubic(progress)));
+
+      if (progress < 1) {
+        requestAnimationFrame(smoothScroll);
+      }
+    }
+
+    function easeOutCubic(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
+
+    requestAnimationFrame(smoothScroll);
   });
 </script>
 
+
 </body>
 </html>
+
 
 
