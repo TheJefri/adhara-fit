@@ -618,6 +618,20 @@ header.scrolled .logo span {
   border: 0;
 }
 
+.map-route {
+  display: inline-block;
+  margin: 15px auto 0;
+  text-align: center;
+  color: #facc15;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.map-route:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(250,204,21,0.6);
+}
 
     
   </style>
@@ -849,18 +863,18 @@ header.scrolled .logo span {
 
 <div class="map-wrapper">
   <iframe
-    src="https://www.google.com/maps?q=Galeria+Cyberplaza,+Jr.+Washington+1345,+Lima+15001&z=17&output=embed"
+    src="https://www.google.com/maps?q=12.041319,-77.050900&z=17&output=embed"
     loading="lazy">
   </iframe>
 
-<div class="map-actions">
-    <a
-      href="https://www.google.com/maps/search/?api=1&query=Galeria+Cyberplaza,+Jr.+Washington+1345,+Lima+15001"
-      target="_blank"
-      class="btn-maps">
-      📍 Cómo llegar
-    </a>
-  </div>
+  <a
+    href="https://www.google.com/maps/dir/?api=1&destination=12.041319,-77.050900"
+    target="_blank"
+    class="map-route">
+    🚗 Cómo llegar
+  </a>
+</div>
+
   
 <section id="reclamaciones" class="reclamaciones">
   <div class="reclamaciones-overlay">
@@ -1050,6 +1064,7 @@ header.scrolled .logo span {
 
 </body>
 </html>
+
 
 
 
