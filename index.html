@@ -619,13 +619,12 @@ header.scrolled .logo span {
 }
 
 .map-route {
-  display: inline-block;
+  display: block;
   margin: 15px auto 0;
   text-align: center;
   color: #facc15;
   font-weight: bold;
   text-decoration: none;
-  transition: all 0.3s ease;
 }
 
 .map-route:hover {
@@ -863,17 +862,19 @@ header.scrolled .logo span {
 
 <div class="map-wrapper">
   <iframe
-  src="https://www.google.com/maps?q=12.041319,-77.050900+(Av.+Ramón+Cárcamo,+Lima)&z=17&output=embed"
-  loading="lazy">
-</iframe>
+    src="https://www.google.com/maps?ll=12.041319,-77.050900&z=17&output=embed"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
 
+  <a
+    href="https://www.google.com/maps/search/?api=1&query=12.041319,-77.050900"
+    target="_blank"
+    class="map-route">
+    📍 Cómo llegar
+  </a>
+</div>
 
- <a
-  href="https://www.google.com/maps/search/?api=1&query=12.041319,-77.050900"
-  target="_blank"
-  class="btn-maps">
-  📍 Cómo llegar
-</a>
 
 
   
@@ -1065,6 +1066,7 @@ header.scrolled .logo span {
 
 </body>
 </html>
+
 
 
 
