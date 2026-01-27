@@ -513,6 +513,49 @@ header.scrolled .logo span {
   margin-bottom: 30px;
   font-size: 1.1rem;
 }
+    
+.whatsapp-float-left {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 25px;
+  left: 25px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  z-index: 1000;
+}
+
+  .scroll-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #facc15;
+  color: #000;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.scroll-top:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 15px rgba(250, 204, 21, 0.6);
+}
 
   </style>
 </head>
@@ -776,11 +819,12 @@ header.scrolled .logo span {
   © 2026 ADHARA FIT – Todos los derechos reservados
 </footer>
 
-<a href="https://wa.me/51977258300"
-   class="whatsapp-float"
+<a href="https://wa.me/51977258300?text=Hola%20👋,%20estoy%20visitando%20la%20web%20de%20ADHARA%20FIT%20y%20quisiera%20recibir%20más%20información.%20¡Gracias!"
+   class="whatsapp-float-left"
    target="_blank">
   <i class="fab fa-whatsapp"></i>
 </a>
+
 
 <script>
   const texts = [
@@ -882,7 +926,30 @@ header.scrolled .logo span {
     });
   });
 </script>
+  
+<button id="scrollTopBtn" class="scroll-top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+<script>
+  const scrollBtn = document.getElementById("scrollTopBtn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollBtn.style.display = "flex";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
 
 </body>
 </html>
+
 
