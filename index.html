@@ -632,6 +632,16 @@ header.scrolled .logo span {
   text-shadow: 0 0 10px rgba(250,204,21,0.6);
 }
 
+/* COACH ÚNICO CENTRADO */
+.coach-single {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coach-single .coach-card {
+  max-width: 360px;
+}
     
   </style>
 </head>
@@ -735,12 +745,12 @@ header.scrolled .logo span {
 </section>
 
 <section id="coaches">
-  <h2>Nuestros Coaches</h2>
+  <h2>Nuestro Coach</h2>
 
-  <div class="grid">
+  <div class="coach-single">
 
     <div class="coach-card fade-up">
-      <img src="coach.png" alt="Coach Juan">
+      <img src="coach.png" alt="Coach Principal">
       <h3>Jesus Bonillo</h3>
 
       <div class="stars">
@@ -757,42 +767,9 @@ header.scrolled .logo span {
       </p>
     </div>
 
-    <div class="coach-card fade-up">
-      <img src="coach2.png" alt="Coach Carlos">
-      <h3>David Laid</h3>
-
-      <div class="stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-      </div>
-
-      <p>
-        Coach certificado en fuerza y acondicionamiento físico.
-      </p>
-    </div>
-
-    <div class="coach-card fade-up">
-      <img src="coach3.png" alt="Coach Luis">
-      <h3>Chico Lachowski</h3>
-
-      <div class="stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-      </div>
-
-      <p>
-        Entrenador personal enfocado en pérdida de grasa
-        y recomposición corporal.
-      </p>
-    </div>
-
   </div>
 </section>
+
 
 <section id="planes">
   <h2>Nuestros Planes</h2>
@@ -1070,6 +1047,7 @@ header.scrolled .logo span {
 
 </body>
 </html>
+
 
 
 
