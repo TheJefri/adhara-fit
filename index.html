@@ -667,6 +667,22 @@ header.scrolled .logo span {
   color: #ffffff;
   margin-right: 6px;
 }
+
+    /* VIDEO GYM */
+.video-container {
+  max-width: 900px;
+  margin: auto;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.7);
+  border: 2px solid rgba(250, 204, 21, 0.4);
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
   </style>
 </head>
 
@@ -793,7 +809,19 @@ header.scrolled .logo span {
 
   </div>
 </section>
+  
+ /* Video mp4 */ 
+  
+<section id="video">
+  <h2>Nuestros Equipos</h2>
 
+  <div class="video-container fade-up">
+    <video controls autoplay muted loop>
+      <source src="Adharfit.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+  </div>
+</section>
 
 <section id="planes">
   <h2>Nuestros Planes</h2>
@@ -1077,6 +1105,7 @@ header.scrolled .logo span {
 
 </body>
 </html>
+
 
 
 
