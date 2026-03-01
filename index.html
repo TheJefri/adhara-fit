@@ -296,6 +296,47 @@
       color: #d1d5db;
       line-height: 1.5;
     }
+/* PANEL LATERAL HOVER COACH */
+.coach-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.coach-main {
+  transition: transform 0.4s ease;
+}
+
+.coach-extra {
+  position: absolute;
+  top: 0;
+  right: -220px;
+  width: 220px;
+  height: 100%;
+  background: #000;
+  border-left: 2px solid #facc15;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  transition: right 0.4s ease;
+}
+
+.coach-extra h4 {
+  color: #facc15;
+  margin-bottom: 15px;
+}
+
+.coach-extra p {
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+/* EFECTO HOVER */
+.coach-card:hover .coach-extra {
+  right: 0;
+}
+    
 /* PLANES PREMIUM */
 .plans-grid {
   gap: 30px;
@@ -786,17 +827,35 @@ header.scrolled .logo span {
 
 <section id="coaches"> 
   <h2>Nuestro Coach</h2> 
+
   <div class="coach-single"> 
     <div class="coach-card fade-up"> 
-      <img src="coach.png" alt="Coach Principal"> 
-      <h3>Jesus Bonillo</h3> <div class="stars"> 
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i> 
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i> 
-      </div> <p> Especialista en entrenamiento funcional y musculación. Más de 15 años transformando vidas. 
-      </p> 
+
+      <div class="coach-main">
+        <img src="coach.png" alt="Coach Principal"> 
+        <h3>Jesus Bonillo</h3> 
+
+        <div class="stars"> 
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i> 
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i> 
+        </div> 
+
+        <p>
+          Especialista en entrenamiento funcional y musculación. 
+          Más de 15 años transformando vidas.
+        </p>
+      </div>
+
+      <!-- PANEL QUE APARECE -->
+      <div class="coach-extra">
+        <h4>Modalidades</h4>
+        <p>🏋️ Clases Presenciales</p>
+        <p>💻 Clases Virtuales</p>
+      </div>
+
     </div> 
   </div> 
 </section>
@@ -1083,6 +1142,7 @@ header.scrolled .logo span {
 
 </body>
 </html>
+
 
 
 
