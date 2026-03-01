@@ -337,6 +337,27 @@
   right: 0;
 }
     
+/* VERSION MOBILE */
+@media (max-width: 768px) {
+
+  .coach-card {
+    max-width: 100%;
+  }
+
+  .coach-extra {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-left: none;
+    border-top: 2px solid #facc15;
+    margin-top: 20px;
+    display: none;
+  }
+
+  .coach-card.active .coach-extra {
+    display: flex;
+  }
+}    
 /* PLANES PREMIUM */
 .plans-grid {
   gap: 30px;
@@ -1139,9 +1160,19 @@ header.scrolled .logo span {
   });
 </script>
 
+<script>
+  const coachCard = document.querySelector(".coach-card");
 
+  coachCard.addEventListener("click", function() {
+    if (window.innerWidth <= 768) {
+      coachCard.classList.toggle("active");
+    }
+  });
+</script>
+  
 </body>
 </html>
+
 
 
 
